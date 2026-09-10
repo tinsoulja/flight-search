@@ -1,0 +1,4 @@
+config/watchlist.json
+state/last-results.json
+*.log
+.DS_Store

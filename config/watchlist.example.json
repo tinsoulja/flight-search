@@ -1,0 +1,34 @@
+{
+  "routes": [
+    {
+      "origin": "AAA",
+      "destination": "BBB",
+      "adults": 1,
+      "children": 0,
+      "infants": 0,
+      "cabin": "economy",
+      "checked_baggage_kg": 20
+    }
+  ],
+  "departure_dates": [
+    "YYYY-MM-DD"
+  ],
+  "trip_lengths_days": [7],
+  "aviasales_scan_concurrency": 1,
+  "aviasales_scan_delay_ms": 500,
+  "aviasales_scan_retries": 2,
+  "finalists_per_route": 5,
+  "weekly_validation": {
+    "trip_com": true,
+    "google_flights": false
+  },
+  "filters": {
+    "max_stops": 1,
+    "max_layover_minutes": 300,
+    "max_leg_duration_minutes": 1020,
+    "max_roundtrip_duration_minutes": 2040
+  },
+  "limit_per_provider": 10,
+  "top_results": 10,
+  "top_results_per_origin": 5
+}
