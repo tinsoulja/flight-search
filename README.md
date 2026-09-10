@@ -1,12 +1,12 @@
-# Flight Search (Cursor skill)
+# Поиск авиабилетов (скилл Cursor)
 
-Cursor skill: compare round-trip fares from Aviasales, Trip.com, and optionally Google Flights (SerpAPI), then score a shortlist with AirHint. It does not book tickets.
+Скилл Cursor: сравнивает цены туда-обратно на Aviasales, Trip.com и при необходимости Google Flights (SerpAPI), затем оценивает шортлист через AirHint (покупать / подождать). Билеты не бронирует.
 
-Copy this folder to `~/.cursor/skills/flight-search/` or into a project's `.cursor/skills/flight-search/`.
+Скопируйте папку в `~/.cursor/skills/flight-search/` или в `.cursor/skills/flight-search/` внутри проекта.
 
-The agent must collect origin, destination, dates (or range + trip length), travelers, cabin, baggage, and budget from the user. It does not ship with anyone's personal routes.
+Агент сначала собирает у пользователя откуда/куда, даты (или диапазон + длительность поездки), состав, класс, багаж и бюджет. Готовых личных маршрутов в скилле нет.
 
-## Commands
+## Команды
 
 ```bash
 node scripts/search_flights.js describe
@@ -14,14 +14,14 @@ node scripts/search_flights.js search --input '{"origin":"AAA","destination":"BB
 node scripts/search_flights.js airhint --input '{"offers":[{"origin":"AAA","destination":"BBB","depart_date":"YYYY-MM-DD","return_date":"YYYY-MM-DD","airline":"XX","price":10000,"currency":"RUB"}]}'
 ```
 
-Optional saved-date scan: copy `config/watchlist.example.json` to `config/watchlist.json`, fill real IATA codes and dates, then:
+Опциональный скан сохранённых дат: скопируйте `config/watchlist.example.json` в `config/watchlist.json`, подставьте реальные IATA-коды и даты, затем:
 
 ```bash
 node scripts/search_flights.js watch
 ```
 
-`watchlist.json` and `state/last-results.json` are gitignored so personal trips stay local.
+Файлы `watchlist.json` и `state/last-results.json` в `.gitignore`, чтобы личные поездки не попадали в git.
 
-## Setup
+## Настройка
 
-See [references/setup.md](references/setup.md). Aviasales goes through the companion `travel-search-ru` skill unless `TRAVEL_SEARCH_RU_SCRIPT` points elsewhere. Google Flights needs `SERPAPI_API_KEY` in the environment or macOS Keychain.
+См. [references/setup.md](references/setup.md). Aviasales идёт через соседний скилл `travel-search-ru`, если не задан `TRAVEL_SEARCH_RU_SCRIPT`. Для Google Flights нужен `SERPAPI_API_KEY` в окружении или в связке ключей macOS.
